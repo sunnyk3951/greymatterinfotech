@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -8,70 +7,86 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@300&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --color-navy: #0b1a2c;
+      --color-navy:  #0b1a2c;
       --color-white: #ffffff;
       --color-cyan:  #00b5e2;
-      --color-yellow:#f5c518;
     }
-    *            { box-sizing:border-box; margin:0; padding:0; }
-    body         { font-family:'Roboto',sans-serif; color:var(--color-navy); }
-    /* Navbar */
-    nav          { background:var(--color-navy); padding:12px 40px; display:flex; align-items:center; justify-content:space-between; }
-    nav img      { height:120px; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Roboto',sans-serif; color:var(--color-navy); }
+
+    /* ---------- NAV ---------- */
+    nav { background:var(--color-navy); padding:12px 40px;
+          display:flex; align-items:center; justify-content:space-between; }
+    nav img      { height:120px; }                 /* path fixed below */
     .nav-links   { display:flex; gap:24px; }
-    .nav-links a { color:var(--color-white); text-decoration:none; font-weight:300; font-size:0.95rem; }
-    .nav-links a:hover{ color:var(--color-cyan); }
+    .nav-links a { color:var(--color-white); text-decoration:none;
+                   font-weight:300; font-size:0.95rem; }
+    .nav-links a:hover { color:var(--color-cyan); }
 
-    /* Generic section */
-    .section     { padding:60px 20px; }
+    /* ---------- GENERIC SECTION ---------- */
+    .section { padding:60px 20px; }
 
-    /* Hero */
-    .hero        { background:url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-                   color:var(--color-white); display:flex; flex-direction:column; align-items:center; justify-content:center; height:80vh; text-align:center; }
-    .hero h1     { font-family:'Poppins',sans-serif; font-size:2.5rem; font-weight:600; margin-bottom:16px; }
-    .hero p      { max-width:600px; font-size:1.05rem; line-height:1.6; }
+    /* ---------- HERO ---------- */
+    .hero {
+      background:url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1400&q=80')
+                 center/cover no-repeat;
+      color:var(--color-white);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      height:80vh; text-align:center; padding:0 20px;
+    }
+    .hero h1 { font-family:'Poppins',sans-serif; font-size:2.5rem; font-weight:600; margin-bottom:16px; }
+    .hero p  { max-width:600px; font-size:1.05rem; line-height:1.6; }
 
-    /* About */
-    .about       { max-width:900px; margin:0 auto; text-align:left; }
-    .about h2    { font-family:'Poppins',sans-serif; font-size:2.2rem; margin-bottom:20px; }
-    .about p     { font-size:1.1rem; line-height:1.6; }
+    /* ---------- ABOUT ---------- */
+    .about      { max-width:900px; margin:0 auto; text-align:left; }
+    .about h2   { font-family:'Poppins',sans-serif; font-size:2.2rem; margin-bottom:20px; }
+    .about p    { font-size:1.1rem; line-height:1.6; }
 
-    /* Mission-Vision row */
+    /* ---------- MISSION / VISION ---------- */
     .mission-vision .icon-item{ flex:1 1 400px; text-align:center; }
     .mission-vision img       { width:64px; height:64px; margin-bottom:16px; }
     .mission-vision h3        { font-family:'Poppins',sans-serif; font-size:1.8rem; margin-bottom:12px; }
     .mission-vision p         { font-size:1.05rem; line-height:1.6; }
-    .mission-vision > div     { display:flex; flex-wrap:wrap; gap:60px; justify-content:center; margin:0 auto; max-width:1100px; }
+    .mission-vision > div     { display:flex; flex-wrap:wrap; gap:60px; justify-content:center; max-width:1100px; margin:0 auto; }
 
-    /* Services */
-    .services h2 { font-family:'Poppins',sans-serif; font-size:2rem; margin-bottom:40px; text-align:center; }
-    .services-grid{ display:grid; gap:32px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
-    .card        { background:#f7f9fc; padding:24px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
-    .card h4     { font-family:'Poppins',sans-serif; font-size:1.1rem; margin-bottom:8px; }
-    .card p      { font-size:0.95rem; line-height:1.5; margin-bottom:12px; }
-    .card a      { color:var(--color-cyan); font-weight:600; text-decoration:none; }
+    /* ---------- SERVICES & INSIGHTS GRIDS ---------- */
+    .services h2,
+    .insights  h2 { font-family:'Poppins',sans-serif; font-size:2rem; margin-bottom:40px; text-align:center; }
 
-    /* Insights */
-    .insights h2 { font-family:'Poppins',sans-serif; font-size:2rem; margin-bottom:40px; text-align:center; }
-    .insights .grid{ display:grid; gap:32px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+    .services-grid,
+    .insights .grid {
+      display:grid; gap:32px;
+      grid-template-columns:repeat(auto-fill,minmax(300px,1fr));    /* 3-column desktop */
+    }
 
-    /* Contact */
+    /* Card styling shared by Services + Insights */
+    .card      { background:#f7f9fc; padding:24px; border-radius:8px;
+                 box-shadow:0 2px 6px rgba(0,0,0,0.05); }
+    .card h4   { font-family:'Poppins',sans-serif; font-size:1.1rem; margin-bottom:8px; }
+    .card p    { font-size:0.95rem; line-height:1.5; margin-bottom:12px; }
+    .card a    { color:var(--color-cyan); font-weight:600; text-decoration:none; }
+
+    /* ---------- CONTACT ---------- */
     .contact h2 { text-align:center; font-family:'Poppins',sans-serif; font-size:2rem; margin-bottom:32px; }
-    .contact-form{ display:flex; justify-content:center; }
-    .contact .card{ max-width:500px; width:100%; }
-    .contact label{ display:block; margin:12px 0 4px; }
-    .contact input,.contact textarea{ width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; }
-    .contact .btn{ margin-top:16px; padding:10px 20px; background:var(--color-cyan); border:none; color:var(--color-white); cursor:pointer; border-radius:4px; }
+    .contact-form { display:flex; justify-content:center; }
+    .contact .card { max-width:500px; width:100%; }
+    .contact label { display:block; margin:12px 0 4px; }
+    .contact input,
+    .contact textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; }
+    .contact .btn { margin-top:16px; padding:10px 20px;
+                    background:var(--color-cyan); border:none; color:var(--color-white);
+                    cursor:pointer; border-radius:4px; }
 
-    /* Footer */
-    footer       { background:var(--color-navy); color:var(--color-white); text-align:center; padding:20px 0; font-size:0.9rem; }
+    /* ---------- FOOTER ---------- */
+    footer { background:var(--color-navy); color:var(--color-white);
+             text-align:center; padding:20px 0; font-size:0.9rem; }
   </style>
 </head>
 <body>
 
-<!-- --- Navbar --- -->
+<!-- ---------- NAV ---------- -->
 <nav>
-  <img src="logo.svg" alt="Grey Matter Logo"/>
+  <img src="assets/logo.svg" alt="Grey Matter Logo"/>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -81,19 +96,19 @@
   </div>
 </nav>
 
-<!-- --- Hero --- -->
+<!-- ---------- HERO ---------- -->
 <section class="hero" id="hero">
-  <h1>Blockchain & AI Solutions that Scale Ideas into Products</h1>
+  <h1>Blockchain &amp; AI Solutions that Scale Ideas into Products</h1>
   <p>We design, build, and accelerate next-gen products through secure on-chain architecture and cutting-edge machine learning.</p>
 </section>
 
-<!-- --- About --- -->
+<!-- ---------- ABOUT ---------- -->
 <section class="section about" id="about">
   <h2>About Us</h2>
   <p>At Grey Matter Infotech, we blend blockchain engineering and artificial intelligence with creative product strategy to deliver measurable growth and unforgettable user experiences.</p>
 </section>
 
-<!-- --- Mission & Vision row --- -->
+<!-- ---------- MISSION / VISION ---------- -->
 <section class="section mission-vision" id="mission-vision">
   <div>
     <div class="icon-item">
@@ -109,38 +124,38 @@
   </div>
 </section>
 
-<!-- --- Services --- -->
+<!-- ---------- SERVICES ---------- -->
 <section class="section services" id="services">
   <h2>Our Services</h2>
   <div class="services-grid">
     <div class="card">
-      <h4>Blockchain Architecture & DApp Development</h4>
+      <h4>Blockchain Architecture &amp; DApp Development</h4>
       <p>End-to-end design, smart-contract coding, and mainnet deployment.</p>
     </div>
     <div class="card">
-      <h4>Smart-Contract Audits & Security Reviews</h4>
+      <h4>Smart-Contract Audits &amp; Security Reviews</h4>
       <p>Identify vulnerabilities and certify contract integrity before launch.</p>
     </div>
     <div class="card">
-      <h4>Tokenomics & DeFi Strategy Advisory</h4>
+      <h4>Tokenomics &amp; DeFi Strategy Advisory</h4>
       <p>Market-fit token models, liquidity plans, and incentive structures.</p>
     </div>
     <div class="card">
-      <h4>On-chain Data Analytics & Dashboards</h4>
+      <h4>On-chain Data Analytics &amp; Dashboards</h4>
       <p>Real-time blockchain data pipelines and custom BI dashboards.</p>
     </div>
     <div class="card">
-      <h4>Custom LLMs & Generative-AI Integration</h4>
+      <h4>Custom LLMs &amp; Generative-AI Integration</h4>
       <p>Train or fine-tune models and embed them in apps or support flows.</p>
     </div>
     <div class="card">
-      <h4>AI-powered Automation & Process Optimisation</h4>
+      <h4>AI-powered Automation &amp; Process Optimisation</h4>
       <p>ML-driven workflows that cut costs and scale operations efficiently.</p>
     </div>
   </div>
 </section>
 
-<!-- --- Process --- -->
+<!-- ---------- PROCESS ---------- -->
 <section class="section process" id="process" style="background:#f7f9fc;">
   <h2 style="text-align:center; font-family:'Poppins',sans-serif; font-size:2rem; margin-bottom:40px;">Our Process</h2>
   <div style="max-width:1100px; margin:0 auto; display:grid; gap:36px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
@@ -150,11 +165,11 @@
     </div>
     <div>
       <h4 style="color:var(--color-cyan); font-size:1.1rem; font-family:'Poppins',sans-serif; margin-bottom:8px;">02 Prototype</h4>
-      <p style="font-size:0.95rem; line-height:1.6;">Rapid proof-of-concepts for smart contracts & AI models to validate feasibility.</p>
+      <p style="font-size:0.95rem; line-height:1.6;">Rapid proof-of-concepts for smart contracts &amp; AI models to validate feasibility.</p>
     </div>
     <div>
       <h4 style="color:var(--color-cyan); font-size:1.1rem; font-family:'Poppins',sans-serif; margin-bottom:8px;">03 Deploy</h4>
-      <p style="font-size:0.95rem; line-height:1.6;">Mainnet launches and model integration with rigorous QA & security audits.</p>
+      <p style="font-size:0.95rem; line-height:1.6;">Mainnet launches and model integration with rigorous QA &amp; security audits.</p>
     </div>
     <div>
       <h4 style="color:var(--color-cyan); font-size:1.1rem; font-family:'Poppins',sans-serif; margin-bottom:8px;">04 Accelerate</h4>
@@ -163,7 +178,7 @@
   </div>
 </section>
 
-<!-- --- Insights (6 cards) --- -->
+<!-- ---------- INSIGHTS ---------- -->
 <section class="section insights" id="insights">
   <h2>Latest Insights</h2>
   <div class="grid">
@@ -200,7 +215,7 @@
   </div>
 </section>
 
-<!-- --- Contact --- -->
+<!-- ---------- CONTACT ---------- -->
 <section class="section contact" id="contact">
   <h2>Contact Us</h2>
   <div class="contact-form">
@@ -220,7 +235,7 @@
   </div>
 </section>
 
-<!-- --- Footer --- -->
+<!-- ---------- FOOTER ---------- -->
 <footer>
   © 2025 Grey Matter Infotech — All Rights Reserved
 </footer>
